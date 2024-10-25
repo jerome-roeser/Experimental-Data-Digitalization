@@ -1,7 +1,7 @@
 import pandas as pd
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from experimental_data_digitalization.data.preprocess import get_file_metadata
+from experimental_data_digitalization.data.preprocess import get_file_metadata, extract_text, get_file_names
 
 # from taxifare.ml_logic.registry import load_model
 # from taxifare.ml_logic.preprocessor import preprocess_features
@@ -24,10 +24,19 @@ def root():
 
 
 @app.get("/metadata")
-def figures() -> dict:
+def metadata() -> dict:
     """
     Input: a pdf file
     Output: the number of figures in the paper
     """
     metadata = get_file_metadata()
     return {'metadata' : metadata}
+
+@app.get("/text")
+def text() -> dict:
+    text = extract_text()
+    return {'plain_text': text}
+
+@app.get("/file_list")
+def file_list() -> dict:
+    return get_file_names()
