@@ -3,7 +3,9 @@ import pymupdf
 from experimental_data_digitalization.params import *
 
 
-pdfs = [file for file in LOCAL_DATA_PATH.iterdir() if file.suffix == '.pdf']
+def get_pdfs():
+    pdfs = [file for file in LOCAL_DATA_PATH.iterdir() if file.suffix == '.pdf']
+    return pdfs
 
 def get_file_metadata():
     metadata = []
@@ -19,7 +21,7 @@ def extract_text():
         doc = pymupdf.open(pdf)
         pages = {}
         for idx, page in enumerate(doc):
-            pages[idx] = page.get_text().encode('utf8')
+            pages[idx] = page.get_text()
         plain_text.append(pages)
 
     return plain_text
