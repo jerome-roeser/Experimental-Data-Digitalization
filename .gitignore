@@ -1,5 +1,6 @@
 .env
 .envrc
+PSEUDO_CODE.md
 
 # milvus lite database
 *.db
