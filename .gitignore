@@ -12,7 +12,7 @@ PSEUDO_CODE.md
 __pycache__
 *.pyc
 
-*.py[cod]
+*.py[cod]git add 
 *$py.class
 
 # C extensions
