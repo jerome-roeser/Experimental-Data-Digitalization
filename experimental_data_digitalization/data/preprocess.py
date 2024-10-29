@@ -9,6 +9,7 @@ def get_pdfs():
 
 def get_file_metadata():
     metadata = []
+    pdfs = get_pdfs()
     for pdf in pdfs:
         doc = pymupdf.open(pdf)
         metadata.append(doc.metadata)
@@ -17,6 +18,7 @@ def get_file_metadata():
 
 def extract_text():
     plain_text = []
+    pdfs = get_pdfs()
     for pdf in pdfs:
         doc = pymupdf.open(pdf)
         pages = {}
