@@ -1,6 +1,10 @@
 .env
 .envrc
 
+# milvus lite database
+*.db
+*.db.lock
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__
